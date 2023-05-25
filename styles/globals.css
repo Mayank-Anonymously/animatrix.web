@@ -1685,7 +1685,7 @@ iframe {
   display: flex;
   height: auto;
   min-width: 100vh;
-  margin: 10px 10px 10px 10px;
+  /* margin: 10px 10px 10px 10px; */
 }
 
 #product-List .auto-container {
