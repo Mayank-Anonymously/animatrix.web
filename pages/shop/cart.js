@@ -7,7 +7,7 @@ import { Alert, Table } from "react-bootstrap";
 import GetCart from "components/api/GetCart";
 import { host } from "static";
 import { BsTrash } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 const Cart = () => {
   const router = useRouter();
   const { id } = router.query;
