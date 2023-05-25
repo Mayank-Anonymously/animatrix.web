@@ -166,7 +166,9 @@ const Cart = () => {
                     </span>
                     <span class="checkout-button">
                       <button class="btn btn-dark ">Continue Shopping</button>
-                      <button class="btn btn-dark">Go To Checkout</button>
+                      <Link href="/checkout/information">
+                        <button class="btn btn-dark">Go To Checkout</button>
+                      </Link>
                     </span>
                   </div>
                   <div class="col col-lg-5 col-md-8 col-sm-8 receipt-view">

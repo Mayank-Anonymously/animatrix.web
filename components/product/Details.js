@@ -6,6 +6,7 @@ import Counter from "../Common/Counter";
 import { host } from "static";
 import AddToCart from "components/api/AddToCart";
 import axios from "axios";
+// import OwlCarousel from "react-owl-carousel";
 
 const Details = ({ details }) => {
   const router = useRouter();
@@ -47,7 +48,25 @@ const Details = ({ details }) => {
 
         <div class="details-container">
           <div class="image-carousel">
-            <img src={`${host}resources/${image}`} />
+            {/* <div className="owl-car">
+              <OwlCarousel className="owl-theme" loop margin={10} nav>
+                <div class="item">
+                  <h4>
+                   
+                    <img src={`${host}resources/${image}`} />
+                  </h4>
+                </div>
+                <div class="item">
+                  <h4>2</h4>
+                </div>
+                <div class="item">
+                  <h4>3</h4>
+                </div>
+              </OwlCarousel>
+            </div> */}
+            <div className="big-image">
+              <img src={`${host}resources/${image}`} />
+            </div>
             <div className="image-thumbnail">
               <img src="/resource/images/product-images/itachig.jpg" />
               <img src="/resource/images/product-images/itachig.jpg" />
