@@ -8,6 +8,7 @@ import GetCart from "components/api/GetCart";
 import { host } from "static";
 import { BsTrash } from "react-icons/bs";
 import Link from "next/link";
+import DeleteCartItem from "components/api/RemoveCartItems";
 const Cart = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -73,7 +74,7 @@ const Cart = () => {
 
                             <td>
                               <div class="table-content">
-                                <p class="mt-4">₹{item.price}</p>
+                                <p class="mt-4">₹{item.priceSale}</p>
                               </div>
                             </td>
                             <td>
@@ -95,8 +96,8 @@ const Cart = () => {
                                 <BsTrash
                                   size={20}
                                   color={"darkred"}
-                                  className="mt-4"
-                                  // onClick={() => DeleteCartItem()}
+                                  className="mt-4 pointer"
+                                  onClick={() => DeleteCartItem(item.ProductId)}
                                 />
                               </div>
                             </td>
@@ -165,11 +166,15 @@ const Cart = () => {
                       <h4>Total</h4>
                       <h4>258.00</h4>
                     </span>
-                    <span class="checkout-button">
-                      <button class="btn btn-dark ">Continue Shopping</button>
-                      <Link href="/checkout/information">
-                        <button class="btn btn-dark">Go To Checkout</button>
-                      </Link>
+                    <span class="checkout-button row">
+                      <div className="col-md-6">
+                        <button class="btn btn-dark ">Continue Shopping</button>
+                      </div>
+                      <div className="col-md-6">
+                        <Link href="/checkout">
+                          <button class="btn btn-dark">Go To Checkout</button>
+                        </Link>
+                      </div>
                     </span>
                   </div>
                   <div class="col col-lg-5 col-md-8 col-sm-8 receipt-view">

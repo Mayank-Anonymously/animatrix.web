@@ -46,6 +46,9 @@ body {
   color: rgba(255, 255, 255, 0.945);
   margin: 0 10px;
 }
+a{
+  text-decoration: none!important;
+}
 
 /* //........ Navbar ........// */
 .nav-heading {
@@ -1685,7 +1688,7 @@ iframe {
   display: flex;
   height: auto;
   min-width: 100vh;
-  /* margin: 10px 10px 10px 10px; */
+  margin: 10px 10px 10px 10px;
 }
 
 #product-List .auto-container {
@@ -2826,4 +2829,57 @@ font-size: 16px!important;
 
 .input-group .btn{
   z-index: 0!important;
+}
+.custom-checkbox input[type=checkbox]{
+  margin-right: 10px;
+}
+
+.pointer {
+  cursor :pointer;
+}
+
+.breadcrumb{
+  margin-top : 5rem !important;     
+}
+.breadcrumb-header{
+  font-size: 3rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: #000;
+}
+.breadcrumb-header h6{
+  font-weight: 300;
+  color: rgb(165  , 159, 159);
+}
+.billing-header{
+    
+}
+.hr-line{
+  height: 2px;
+    width: 120px;
+margin-bottom: 5px;
+    background: #f6c88c;
+
+}
+.bill-image img{
+      width: 44px;
+    border-radius: 10px;
+}
+/* .bill-product{
+      margin-left: 10px;
+    margin-top: 10px;
+} */
+
+
+.slick-slide img{
+  width: 300px;
+  margin-left : 100px
+}
+
+
+@media screen and (max-width: 768px) {
+  .slick-slide img{
+  width: 300px;
+  margin-left : 50px
+}
 }

@@ -1,12 +1,45 @@
-import NavbarSection from "components/_home/NavbarSection";
 import React from "react";
+import state from "../../utils/state.json";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { host } from "static";
 
-const information = () => {
+const Information = ({ cartData }) => {
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      address2: "",
+      country: "",
+      state: "",
+      zip: "",
+      phone: "",
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string().required("Required"),
+      lastName: Yup.string().required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      address: Yup.string().required("Required"),
+      zip: Yup.string()
+        .required("Zipcode is required")
+        .min(5, "Zipcode should not be long less than 5 digits")
+        .max(5, "Zipcode should not be long more than 5 digits"),
+      phone: Yup.string()
+        .required("Phone is required")
+        .min(10, "Phone should not be long less than 10 digits")
+        .max(10, "Phone should not be long more than 10 digits"),
+    }),
+    onSubmit: (values) => {
+      CreateClient(values, navigate);
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+  //validation**************************************************************************8
+
   return (
     <>
-      <div className="navbar-black">
-        <NavbarSection />
-      </div>
       <div className="container" style={{ marginTop: "20px" }}>
         <div className="row">
           <div className="col-md-4 order-md-2 mb-4">
@@ -15,37 +48,37 @@ const information = () => {
               <span className="badge badge-secondary badge-pill">3</span>
             </h4>
             <ul className="list-group mb-3">
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Product name</h6>
-                  <small className="text-muted">Brief description</small>
-                </div>
-                <span className="text-muted">$12</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Second product</h6>
-                  <small className="text-muted">Brief description</small>
-                </div>
-                <span className="text-muted">$8</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Third item</h6>
-                  <small className="text-muted">Brief description</small>
-                </div>
-                <span className="text-muted">$5</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between bg-light">
+              {cartData.map((item, index) => {
+                return (
+                  <li className="list-group-item d-flex justify-content-between align-items-center lh-condensed bill-image">
+                    <div>
+                      <img src={`${host}resources/${item.image}`} />
+                    </div>
+                    <div className="bill-product">
+                      <h6 className="my-0">{item.title}</h6>
+                      <small className="text-muted">Size</small>
+                    </div>
+                    <span className="text-muted">₹{item.priceSale}</span>
+                  </li>
+                );
+              })}
+
+              {/* <li className="list-group-item d-flex justify-content-between bg-light">
                 <div className="text-success">
                   <h6 className="my-0">Promo code</h6>
                   <small>EXAMPLECODE</small>
                 </div>
                 <span className="text-success">-$5</span>
-              </li>
+              </li> */}
+
               <li className="list-group-item d-flex justify-content-between">
-                <span>Total (USD)</span>
-                <strong>$20</strong>
+                <span>Total Price</span>
+                <strong>
+                  ₹
+                  {cartData.reduce(function (prev, current) {
+                    return prev + current.priceSale;
+                  }, 0)}
+                </strong>
               </li>
             </ul>
 
@@ -65,8 +98,10 @@ const information = () => {
             </form>
           </div>
           <div className="col-md-8 order-md-1">
-            <h4 className="mb-3">Billing address</h4>
-            <form className="needs-validation">
+            <h4 className="mb-3 billing-header">
+              1.Billing and Contact Details
+            </h4>
+            <form className="needs-validation" onSubmit={formik.handleSubmit}>
               <div className="row">
                 <div className="col-md-6 mb-3">
                   <label for="firstName">First name</label>
@@ -74,13 +109,20 @@ const information = () => {
                     type="text"
                     className="form-control"
                     id="firstName"
+                    name="firstName"
                     placeholder=""
-                    value=""
-                    required
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.firstName}
+                    controlId="firstName"
                   />
-                  <div className="invalid-feedback">
-                    Valid first name is required.
-                  </div>
+                  <span className="text-danger">
+                    {formik.touched.firstName && formik.errors.firstName ? (
+                      <div className="text-danger">
+                        {formik.errors.firstName}
+                      </div>
+                    ) : null}
+                  </span>
                 </div>
                 <div className="col-md-6 mb-3">
                   <label for="lastName">Last name</label>
@@ -88,32 +130,20 @@ const information = () => {
                     type="text"
                     className="form-control"
                     id="lastName"
+                    name="lastName"
                     placeholder=""
-                    value=""
-                    required
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.lastName}
+                    controlId="lastName"
                   />
-                  <div className="invalid-feedback">
-                    Valid last name is required.
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-3">
-                <label for="username">Username</label>
-                <div className="input-group">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">@</span>
-                  </div>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="username"
-                    placeholder="Username"
-                    required
-                  />
-                  <div className="invalid-feedback" style={{ width: "100%" }}>
-                    Your username is required.
-                  </div>
+                  <span className="text-danger">
+                    {formik.touched.lastName && formik.errors.lastName ? (
+                      <div className="text-danger">
+                        {formik.errors.lastName}
+                      </div>
+                    ) : null}
+                  </span>
                 </div>
               </div>
 
@@ -125,25 +155,38 @@ const information = () => {
                   type="email"
                   className="form-control"
                   id="email"
+                  name="email"
                   placeholder="you@example.com"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                  controlId="email"
                 />
-                <div className="invalid-feedback">
-                  Please enter a valid email address for shipping updates.
-                </div>
+                <span className="text-danger">
+                  {formik.touched.email && formik.errors.email ? (
+                    <div className="text-danger">{formik.errors.email}</div>
+                  ) : null}
+                </span>
               </div>
 
               <div className="mb-3">
                 <label for="address">Address</label>
                 <input
                   type="text"
+                  name="address"
                   className="form-control"
                   id="address"
                   placeholder="1234 Main St"
-                  required
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.address}
+                  controlId="address"
                 />
-                <div className="invalid-feedback">
-                  Please enter your shipping address.
-                </div>
+                <span className="text-danger">
+                  {formik.touched.address && formik.errors.address ? (
+                    <div className="text-danger">{formik.errors.address}</div>
+                  ) : null}
+                </span>
               </div>
 
               <div className="mb-3">
@@ -154,6 +197,7 @@ const information = () => {
                   type="text"
                   className="form-control"
                   id="address2"
+                  name="address2"
                   placeholder="Apartment or suite"
                 />
               </div>
@@ -162,12 +206,12 @@ const information = () => {
                 <div className="col-md-5 mb-3">
                   <label for="country">Country</label>
                   <select
-                    className="custom-select d-block w-100"
+                    class="form-select"
+                    aria-label="Default select example"
                     id="country"
-                    required
+                    name="country"
                   >
-                    <option value="">Choose...</option>
-                    <option>United States</option>
+                    <option selected>India</option>
                   </select>
                   <div className="invalid-feedback">
                     Please select a valid country.
@@ -176,12 +220,17 @@ const information = () => {
                 <div className="col-md-4 mb-3">
                   <label for="state">State</label>
                   <select
-                    className="custom-select d-block w-100"
+                    class="form-select"
+                    aria-label="Default select example"
                     id="state"
-                    required
+                    name="state"
                   >
-                    <option value="">Choose...</option>
-                    <option>California</option>
+                    <option selected>Choose...</option>
+                    {state.map((item, index) => {
+                      return (
+                        <option value={item.dial_code}>{item.name}</option>
+                      );
+                    })}
                   </select>
                   <div className="invalid-feedback">
                     Please provide a valid state.
@@ -193,10 +242,37 @@ const information = () => {
                     type="text"
                     className="form-control"
                     id="zip"
+                    name="zip"
                     placeholder=""
-                    required
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.zip}
+                    controlId="zip"
                   />
-                  <div className="invalid-feedback">Zip code required.</div>
+                  <span className="text-danger">
+                    {formik.touched.zip && formik.errors.zip ? (
+                      <div className="text-danger">{formik.errors.zip}</div>
+                    ) : null}
+                  </span>
+                </div>
+                <div className="col-md-12 mb-3">
+                  <label for="zip">Phone No.</label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="phone"
+                    name="phone"
+                    placeholder=""
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.phone}
+                    controlId="phone"
+                  />
+                  <span className="text-danger">
+                    {formik.touched.phone && formik.errors.phone ? (
+                      <div className="text-danger">{formik.errors.phone}</div>
+                    ) : null}
+                  </span>
                 </div>
               </div>
               <hr className="mb-4" />
@@ -217,14 +293,14 @@ const information = () => {
                   id="save-info"
                 />
                 <label className="custom-control-label" for="save-info">
-                  Save this information for next time
+                  Save this I for next time
                 </label>
               </div>
               <hr className="mb-4" />
 
-              <h4 className="mb-3">Payment</h4>
+              <h4 className="mb-3">Payment method</h4>
 
-              <div className="d-block my-3">
+              {/* <div className="d-block my-3">
                 <div className="custom-control custom-radio">
                   <input
                     id="credit"
@@ -319,7 +395,7 @@ const information = () => {
                   />
                   <div className="invalid-feedback">Security code required</div>
                 </div>
-              </div>
+              </div> */}
               <hr className="mb-4" />
               <button
                 className="btn btn-primary btn-lg btn-block"
@@ -335,4 +411,4 @@ const information = () => {
   );
 };
 
-export default information;
+export default Information;
