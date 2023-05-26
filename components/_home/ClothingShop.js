@@ -1,4 +1,5 @@
 import React from "react";
+import { host } from "static";
 
 const ClothingShop = () => {
   return (
@@ -19,7 +20,7 @@ const ClothingShop = () => {
           <div className="col-md-8">
             <img
               style={{ width: "100%", height: "90%" }}
-              src="/resource/images/tshirtbg.jpg"
+              src={`${host}resource/images/tshirtbg.jpg`}
             />
           </div>
         </div>
