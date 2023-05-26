@@ -73,12 +73,16 @@ const Information = ({ cartData }) => {
 
               <li className="list-group-item d-flex justify-content-between">
                 <span>Total Price</span>
-                <strong>
-                  ₹
-                  {cartData.reduce(function (prev, current) {
-                    return prev + current.priceSale;
-                  }, 0)}
-                </strong>
+                {cartData.length !== 0 ? (
+                  <strong>
+                    ₹
+                    {cartData.reduce(function (prev, current) {
+                      return prev + current.priceSale;
+                    }, 0)}
+                  </strong>
+                ) : (
+                  0
+                )}
               </li>
             </ul>
 
