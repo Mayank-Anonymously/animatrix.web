@@ -101,7 +101,7 @@ const Details = ({ details }) => {
                 </span>
                 <span class="prices">
                   <h5>₹ {priceSale}</h5>
-                  <h6>₹ {price}</h6>
+                  <h6 style={{ textDecoration: "line-through" }}>₹ {price}</h6>
                 </span>
                 <span class="shipment-detail">
                   <p>
