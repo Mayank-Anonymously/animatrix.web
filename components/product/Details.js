@@ -28,6 +28,7 @@ const Details = ({ details }) => {
     ProductId,
   } = details;
 
+  console.log(details);
   const navigatetocart = () => {
     AddToCart({ details });
     router.push("/shop/cart");

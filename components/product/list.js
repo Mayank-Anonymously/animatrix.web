@@ -29,7 +29,11 @@ const List = () => {
       <div id="product-List">
         <div className="auto-container">
           {productData.length === 0 ? (
-            "Wait while we fetch products for you"
+            <>
+              <div className="loader">
+                <section class="spin-loader"></section>
+              </div>
+            </>
           ) : (
             <div className="row card-container">
               {productData.map((item, index) => {

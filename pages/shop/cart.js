@@ -17,7 +17,7 @@ const Cart = () => {
   const [qtyUpdate, setQtyUpdate] = useState(false);
   useEffect(() => {
     GetCart({ setCartData, id, setQtyUpdate });
-  }, [GetCart({ setCartData, setQtyUpdate })]);
+  }, []);
 
   return (
     <>
@@ -38,8 +38,11 @@ const Cart = () => {
             <div class="auto-container">
               <div class="cart-container">
                 <div>
-                  <span>
+                  <span className="checkout-span">
                     <h3>Cart ({cartData.length})</h3>
+                    <Link href="/checkout">
+                      <button class="btn btn-dark">Go To Checkout</button>
+                    </Link>
                   </span>
                 </div>
 
@@ -50,7 +53,7 @@ const Cart = () => {
                         <th>Item</th>
                         <th>Price</th>
                         <th>Quanity</th>
-                        <th>Total</th>
+                        {/* <th>Total</th> */}
                         <th>Remove</th>
                       </tr>
                     </thead>
@@ -86,11 +89,11 @@ const Cart = () => {
                                 />
                               </span>
                             </td>
-                            <td>
+                            {/* <td>
                               <div class="table-content">
                                 <p class="mt-4">₹{item.priceSale}</p>
                               </div>
-                            </td>
+                            </td> */}
                             <td>
                               <div class="table-content">
                                 <BsTrash
@@ -123,6 +126,14 @@ const Cart = () => {
                             setQtyUpdate={setQtyUpdate}
                           />
                         </span>
+                        <span class="quantity">
+                          <BsTrash
+                            size={20}
+                            color={"darkred"}
+                            className="mt-4 pointer"
+                            onClick={() => DeleteCartItem(item.ProductId)}
+                          />
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -131,7 +142,7 @@ const Cart = () => {
             </div>
           </section>
           <div class="seperator" />
-          <section id="bill-section">
+          {/* <section id="bill-section">
             <div class="auto-container">
               <div class="bill-container">
                 <div>
@@ -177,13 +188,11 @@ const Cart = () => {
                       </div>
                     </span>
                   </div>
-                  {/* <div class="col col-lg-5 col-md-8 col-sm-8 receipt-view">
-                    Work In Progress
-                  </div> */}
+          
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
         </>
       )}
 

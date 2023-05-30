@@ -40,8 +40,8 @@ const index = () => {
           <Description description={description} />
         </>
       ) : (
-        <div className="centre">
-          <span>NO DATA</span>
+        <div className="loader">
+          <section class="spin-loader"></section>
         </div>
       )}
 
