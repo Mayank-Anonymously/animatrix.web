@@ -6,7 +6,7 @@ const NavbarSection = () => {
   const [isActive, setActive] = useState(false);
   const [navbar, setNavbar] = useState("navbar");
   const [navwrap, setNavwrap] = useState("nav-wrapper");
-  var scrollTo = require("scroll-to");
+
   const changeBackground = () => {
     if (window.scrollY >= 0.5) {
       setNavbar("sticky");
