@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 import { host } from "static";
 import swal from "sweetalert";

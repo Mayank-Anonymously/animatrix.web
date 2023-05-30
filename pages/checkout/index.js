@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Information from "./information";
+import Information from "../../components/checkout/Information";
 import HeaderBreadCrumbs from "components/Common/HeaderBreadCrumbs";
 import NavbarSection from "components/_home/NavbarSection";
 import GetCart from "components/api/GetCart";
