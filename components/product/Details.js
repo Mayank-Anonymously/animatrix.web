@@ -95,41 +95,56 @@ const Details = ({ details }) => {
               </Slider>
             </div>
             <div className="col-md-6">
-              <div class="product-details">
-                <span class="title">
-                  <h2>{title}</h2>
-                </span>
-                <span class="prices">
-                  <h5>₹ {priceSale}</h5>
-                  <h6>₹ {price}</h6>
-                </span>
-                <span class="shipment-detail">
-                  <p>
-                    VAT not charged, plus shipping <br />
-                    <strong>Free shipping</strong> on domestic orders over ₹50
-                  </p>
-                </span>
-
-                <span class="cart-and-wishlist-btn">
-                  <div class="add-to-cart-btn" onClick={() => navigatetocart()}>
-                    <button class="btn text-white"> Add to Cart</button>
+              <div class="details-container">
+                <div class="product-details">
+                  <span class="title">
+                    <h2>{title}</h2>
+                  </span>
+                  <span class="prices">
+                    <h5>₹ {priceSale}</h5>
+                    <h6>₹ {price}</h6>
+                  </span>
+                  <span class="shipment-detail">
+                    <p>
+                      VAT not charged, plus shipping <br />
+                      <strong>Free shipping</strong> on domestic orders over ₹50
+                    </p>
+                  </span>
+                  <div className="size-selection">
+                    <label style={{ fontWeight: "600" }} for="tshirt">
+                      Select Size
+                    </label>
+                    <select name="tshirt" id="tshirt-size">
+                      <option value="small">S</option>
+                      <option value="medium">M</option>
+                      <option value="large">L</option>
+                      <option value="xtra">XL</option>
+                    </select>
                   </div>
-                </span>
-                <span class="delivery-timing">
-                  <h6>
-                    <strong>Delivery Timing</strong>
-                  </h6>
-                  <h6>
-                    1-2 Week <span class="stock-left">Only 1 left !!!</span>
-                  </h6>
-                  <p dangerouslySetInnerHTML={{ __html: description }} />
-                </span>
+                  <span class="cart-and-wishlist-btn">
+                    <div
+                      class="add-to-cart-btn"
+                      onClick={() => navigatetocart()}
+                    >
+                      <button class="btn text-white"> Add to Cart</button>
+                    </div>
+                  </span>
+                  <span class="delivery-timing">
+                    <h6>
+                      <strong>Delivery Timing</strong>
+                    </h6>
+                    <h6>
+                      1-2 Week <span class="stock-left">Only 1 left !!!</span>
+                    </h6>
+                    <p dangerouslySetInnerHTML={{ __html: description }} />
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="details-container">
-          {/* <Slider {...settings}>
+
+        {/* <Slider {...settings}>
               <div>
                 <h3>1</h3>
               </div>
@@ -143,7 +158,7 @@ const Details = ({ details }) => {
                 <h3>4</h3>
               </div>
             </Slider> */}
-          {/* <div className="big-image">
+        {/* <div className="big-image">
               <img src={`${host}resources/${image}`} />
             </div>
             <div className="image-thumbnail">
@@ -152,7 +167,6 @@ const Details = ({ details }) => {
               <img src="/resource/images/product-images/itachig.jpg" />
               <img src="/resource/images/product-images/itachig.jpg" />
             </div> */}
-        </div>
       </div>
     </section>
   );

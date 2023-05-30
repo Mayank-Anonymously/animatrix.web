@@ -1688,7 +1688,7 @@ iframe {
   display: flex;
   height: auto;
   min-width: 100vh;
-  margin: 10px 10px 10px 10px;
+  /* margin: 10px 10px 10px 10px; */
 }
 
 #product-List .auto-container {
@@ -2882,4 +2882,16 @@ margin-bottom: 5px;
   width: 300px;
   margin-left : 50px
 }
+.product-details{
+      margin-top: 37px;
+}
+.slick-div-custom{
+  overflow-x: hidden;
+}
+}
+.size-selection{
+  margin-top: 20px;
+}
+.size-selection select{
+  margin-left: 10px;
 }
