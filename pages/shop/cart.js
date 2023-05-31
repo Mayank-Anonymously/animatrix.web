@@ -17,8 +17,8 @@ const Cart = () => {
   const [qtyUpdate, setQtyUpdate] = useState(false);
   useEffect(() => {
     GetCart({ setCartData, id, setQtyUpdate });
-  }, []);
-
+  }, [qtyUpdate]);
+  console.log(qtyUpdate);
   return (
     <>
       {qtyUpdate === true ? (
@@ -100,7 +100,9 @@ const Cart = () => {
                                   size={20}
                                   color={"darkred"}
                                   className="mt-4 pointer"
-                                  onClick={() => DeleteCartItem(item.ProductId)}
+                                  onClick={() =>
+                                    DeleteCartItem(item.ProductId, setQtyUpdate)
+                                  }
                                 />
                               </div>
                             </td>

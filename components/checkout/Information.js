@@ -3,6 +3,7 @@ import state from "../../utils/state.json";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { host } from "static";
+import Link from "next/link";
 
 const Information = ({ cartData }) => {
   const formik = useFormik({
@@ -16,6 +17,7 @@ const Information = ({ cartData }) => {
       state: "",
       zip: "",
       phone: "",
+      city: "",
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
@@ -32,7 +34,6 @@ const Information = ({ cartData }) => {
         .max(10, "Phone should not be long more than 10 digits"),
     }),
     onSubmit: (values) => {
-      CreateClient(values, navigate);
       alert(JSON.stringify(values, null, 2));
     },
   });
@@ -103,7 +104,7 @@ const Information = ({ cartData }) => {
           </div>
           <div className="col-md-8 order-md-1">
             <h4 className="mb-3 billing-header">
-              1.Billing and Contact Details
+              1. Billing and Contact Details
             </h4>
             <form className="needs-validation" onSubmit={formik.handleSubmit}>
               <div className="row">
@@ -194,32 +195,55 @@ const Information = ({ cartData }) => {
               </div>
 
               <div className="mb-3">
-                <label for="address2">
-                  Address 2 <span className="text-muted">(Optional)</span>
-                </label>
+                <label for="address2">Address 2</label>
                 <input
                   type="text"
                   className="form-control"
                   id="address2"
                   name="address2"
                   placeholder="Apartment or suite"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.address2}
+                  controlId="address2"
                 />
               </div>
 
               <div className="row">
                 <div className="col-md-5 mb-3">
                   <label for="country">Country</label>
+
                   <select
                     class="form-select"
                     aria-label="Default select example"
-                    id="country"
+                    onChange={(e) =>
+                      formik.setFieldValue("country", e.target.value)
+                    }
+                    required
                     name="country"
+                    onBlur={formik.handleBlur}
+                    value={formik.values.country}
                   >
-                    <option selected>India</option>
+                    <option value="Select Country">Select</option>
+                    <option value={"India"}>India</option>
                   </select>
                   <div className="invalid-feedback">
                     Please select a valid country.
                   </div>
+                </div>
+                <div className="col-md-3 mb-3">
+                  <label for="city">city</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="city"
+                    name="city"
+                    placeholder="city"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.city}
+                    controlId="city"
+                  />
                 </div>
                 <div className="col-md-4 mb-3">
                   <label for="state">State</label>
@@ -228,19 +252,20 @@ const Information = ({ cartData }) => {
                     aria-label="Default select example"
                     id="state"
                     name="state"
+                    onChange={(e) =>
+                      formik.setFieldValue("state", e.target.value)
+                    }
                   >
                     <option selected>Choose...</option>
                     {state.map((item, index) => {
-                      return (
-                        <option value={item.dial_code}>{item.name}</option>
-                      );
+                      return <option value={item.name}>{item.name}</option>;
                     })}
                   </select>
                   <div className="invalid-feedback">
                     Please provide a valid state.
                   </div>
                 </div>
-                <div className="col-md-3 mb-3">
+                <div className="col-md-6 mb-3">
                   <label for="zip">Zip</label>
                   <input
                     type="text"
@@ -259,7 +284,7 @@ const Information = ({ cartData }) => {
                     ) : null}
                   </span>
                 </div>
-                <div className="col-md-12 mb-3">
+                <div className="col-md-6 mb-3">
                   <label for="zip">Phone No.</label>
                   <input
                     type="number"
@@ -339,7 +364,7 @@ const Information = ({ cartData }) => {
                     required
                   />
                   <label className="custom-control-label" for="paypal">
-                    PayPal
+                    PayPalw
                   </label>
                 </div>
               </div>
@@ -400,13 +425,18 @@ const Information = ({ cartData }) => {
                   <div className="invalid-feedback">Security code required</div>
                 </div>
               </div> */}
+
               <hr className="mb-4" />
-              <button
+              <Link
                 className="btn btn-primary btn-lg btn-block"
                 type="submit"
+                href={{
+                  pathname: "/checkout/payment",
+                  query: formik.values, // the data
+                }}
               >
-                Continue to checkout
-              </button>
+                <button disabled={!formik.isValid}>Continue to checkout</button>
+              </Link>
             </form>
           </div>
         </div>
