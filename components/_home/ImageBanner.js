@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import { host } from "static";
 
-const Imagebanner = ({ imagebtn }) => {
+const Imagebanner = ({ imagebtn, image }) => {
   return (
     <>
       <div
