@@ -7,6 +7,7 @@ import { host } from "static";
 import AddToCart from "components/api/AddToCart";
 import Slider from "react-slick";
 import axios from "axios";
+import Link from "next/link";
 
 const Details = ({ details }) => {
   const router = useRouter();
@@ -123,12 +124,13 @@ const Details = ({ details }) => {
                     </select>
                   </div>
                   <span class="cart-and-wishlist-btn">
-                    <div
+                    <Link
+                      href="https://api.whatsapp.com/send?phone=918800256380&text=HI"
                       class="add-to-cart-btn"
-                      onClick={() => navigatetocart()}
+                      // onClick={() => navigatetocart()}
                     >
-                      <button class="btn text-white"> Add to Cart</button>
-                    </div>
+                      <button class="btn text-white">Buy Now</button>
+                    </Link>
                   </span>
                   <span class="delivery-timing">
                     <h6>
