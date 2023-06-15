@@ -11,7 +11,11 @@ import Link from "next/link";
 
 const Details = ({ details }) => {
   const router = useRouter();
-
+  // var object = {
+  //   name: title,
+  //   description: description,
+  //   amount: priceSale,
+  // };
   const { id } = router.query;
   const [productData, setProductData] = useState([]);
   const {
@@ -124,13 +128,15 @@ const Details = ({ details }) => {
                     </select>
                   </div>
                   <span class="cart-and-wishlist-btn">
-                    <Link
-                      href={`https://api.whatsapp.com/send?phone=919971790511&text=Product-Name:${title}`}
+                    <div
+                      // href={`https://api.whatsapp.com/send?phone=919971790511&text=Product-Name:${JSON.stringify(
+                      //   object
+                      // )}`}
                       class="add-to-cart-btn"
-                      // onClick={() => navigatetocart()}
+                      onClick={() => navigatetocart()}
                     >
                       <button class="btn text-white">Buy Now</button>
-                    </Link>
+                    </div>
                   </span>
                   <span class="delivery-timing">
                     <h6>

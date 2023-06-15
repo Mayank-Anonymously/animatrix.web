@@ -2934,3 +2934,10 @@ margin-bottom: 5px;
     justify-content: space-between;
     width: 100%;
 }
+.payment-btn{
+      background: black;
+    color: white;
+    padding: 15px;
+    border-radius: 9px;
+    margin-bottom: 30px;
+}

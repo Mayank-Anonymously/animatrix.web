@@ -6,6 +6,7 @@ import { host } from "static";
 import Link from "next/link";
 
 const Information = ({ cartData }) => {
+  console.log("cartData:", cartData);
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -26,8 +27,8 @@ const Information = ({ cartData }) => {
       address: Yup.string().required("Required"),
       zip: Yup.string()
         .required("Zipcode is required")
-        .min(5, "Zipcode should not be long less than 5 digits")
-        .max(5, "Zipcode should not be long more than 5 digits"),
+        .min(6, "Zipcode should not be long less than 6 digits")
+        .max(6, "Zipcode should not be long more than 6 digits"),
       phone: Yup.string()
         .required("Phone is required")
         .min(10, "Phone should not be long less than 10 digits")
@@ -37,8 +38,29 @@ const Information = ({ cartData }) => {
       alert(JSON.stringify(values, null, 2));
     },
   });
-  //validation**************************************************************************8
-
+  //validation**************************************************************************
+  const { values } = formik;
+  const Product = cartData.map((item, index) => {
+    return {
+      name: item.title,
+    };
+  });
+  const ProductObj = {
+    firstName: values.firstName,
+    lastName: values.lastName,
+    email: values.email,
+    address: values.address,
+    address2: values.address2,
+    country: values.country,
+    state: values.state,
+    zip: values.zip,
+    phone: values.phone,
+    city: values.city,
+    Product: Product,
+  };
+  const data = JSON.stringify(Product);
+  const right = data.replaceAll("[{", "");
+  const left = right.replace("}]", "");
   return (
     <>
       <div className="container" style={{ marginTop: "20px" }}>
@@ -304,7 +326,7 @@ const Information = ({ cartData }) => {
                   </span>
                 </div>
               </div>
-              <hr className="mb-4" />
+              {/* <hr className="mb-4" />
               <div className="custom-control custom-checkbox">
                 <input
                   type="checkbox"
@@ -324,7 +346,7 @@ const Information = ({ cartData }) => {
                 <label className="custom-control-label" for="save-info">
                   Save this I for next time
                 </label>
-              </div>
+              </div> */}
               <hr className="mb-4" />
 
               <h4 className="mb-3">Payment method</h4>
@@ -428,14 +450,22 @@ const Information = ({ cartData }) => {
 
               <hr className="mb-4" />
               <Link
-                className="btn btn-primary btn-lg btn-block"
-                type="submit"
-                href={{
-                  pathname: "/checkout/payment",
-                  query: formik.values, // the data
-                }}
+                // className="btn btn-p rimary btn-lg btn-block"
+                target="__blank"
+                // href={{
+                //   pathname: `https://api.whatsapp.com/send?phone=919711360687&text=details:${data}}`,
+                //   query: formik.values, // the data
+                // }}
+                className="payment-btn"
+                href={`https://api.whatsapp.com/send?phone=919971790511&text=Name:${
+                  values.firstName
+                }-${values.lastName},email:${values.email},address:${
+                  values.address + values.address2
+                },state:${values.state},zip:${values.zip},city:${
+                  values.city
+                },phone:${values.phone},ProductDetails:${left}`}
               >
-                <button disabled={!formik.isValid}>Continue to checkout</button>
+                Continue to checkout
               </Link>
             </form>
           </div>

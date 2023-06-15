@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { host } from "static";
 
@@ -15,7 +16,9 @@ const ClothingShop = () => {
               <br />
               COLLECTION
             </h1>
-            <button>SHOP NOW</button>
+            <Link href="/shop">
+              <button>SHOP NOW</button>
+            </Link>
           </div>
           <div className="col-md-8">
             <img

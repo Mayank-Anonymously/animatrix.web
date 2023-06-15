@@ -7,8 +7,11 @@ const Imagebanner = ({ imagebtn, image }) => {
     <>
       <div
         className="container-fluid image-banner"
+        // style={{
+        //   backgroundImage: `url({${host}resources/${image}})`,
+        // }}
         style={{
-          backgroundImage: `url({${host}resources/${image}})`,
+          backgroundImage: `url("/resource/images/category.jpg")`,
         }}
       >
         <div className="container">
@@ -22,7 +25,7 @@ const Imagebanner = ({ imagebtn, image }) => {
             latest articles
           </h2>
           <div className="contact-btn text-center">
-            <Link href="/contact">
+            <Link href="/#contact">
               <button data-aos="fade-in" data-aos-delay="50">
                 {imagebtn}
               </button>
