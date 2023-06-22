@@ -11,13 +11,9 @@ import Link from "next/link";
 
 const Details = ({ details }) => {
   const router = useRouter();
-  // var object = {
-  //   name: title,
-  //   description: description,
-  //   amount: priceSale,
-  // };
   const { id } = router.query;
   const [productData, setProductData] = useState([]);
+  const [productSize, setProductSize] = useState("S");
   const {
     _id,
     title,
@@ -33,9 +29,9 @@ const Details = ({ details }) => {
     ProductId,
   } = details;
 
-  console.log(details);
+  const WithSize = { ...details, selSize: productSize };
   const navigatetocart = () => {
-    AddToCart({ details });
+    AddToCart({ WithSize });
     router.push("/shop/cart");
   };
 
@@ -120,7 +116,12 @@ const Details = ({ details }) => {
                     <label style={{ fontWeight: "600" }} for="tshirt">
                       Select Size
                     </label>
-                    <select name="tshirt" id="tshirt-size">
+                    <select
+                      name="tshirt"
+                      id="tshirt-size"
+                      value={productSize}
+                      onChange={(e) => setProductSize(e.target.value)}
+                    >
                       <option value="small">S</option>
                       <option value="medium">M</option>
                       <option value="large">L</option>

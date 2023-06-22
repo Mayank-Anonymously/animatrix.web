@@ -6,7 +6,6 @@ import { host } from "static";
 import Link from "next/link";
 
 const Information = ({ cartData }) => {
-  console.log("cartData:", cartData);
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -41,8 +40,10 @@ const Information = ({ cartData }) => {
   //validation**************************************************************************
   const { values } = formik;
   const Product = cartData.map((item, index) => {
+    console.log(item);
     return {
       name: item.title,
+      size: item.selSize,
     };
   });
   const ProductObj = {

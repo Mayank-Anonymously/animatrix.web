@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { host } from "static";
-const AddToCart = ({ details }) => {
+const AddToCart = ({ WithSize }) => {
   const options = {
     method: "POST",
     url: `${host}cart/addItemsToCart`,
     headers: { "Content-Type": "application/json" },
-    data: details,
+    data: WithSize,
   };
 
   axios
