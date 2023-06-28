@@ -40,7 +40,6 @@ const Information = ({ cartData }) => {
   //validation**************************************************************************
   const { values } = formik;
   const Product = cartData.map((item, index) => {
-    console.log(item);
     return {
       name: item.title,
       size: item.selSize,

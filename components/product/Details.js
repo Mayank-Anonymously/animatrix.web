@@ -70,7 +70,7 @@ const Details = ({ details }) => {
       },
     ],
   };
-
+  console.log("details:", image);
   return (
     <section id="product-details">
       <div class="auto-container">
@@ -88,12 +88,13 @@ const Details = ({ details }) => {
           <div className="row">
             <div className="col-md-6 slick-div-custom">
               <Slider {...settings}>
-                <div>
-                  <img src={`${host}resources/${image}`} />
-                </div>
-                <div>
-                  <img src={`${host}resources/${image}`} />
-                </div>
+                {image.map((item, index) => {
+                  return (
+                    <div>
+                      <img src={`${host}resources/${item.filename}`} />
+                    </div>
+                  );
+                })}
               </Slider>
             </div>
             <div className="col-md-6">

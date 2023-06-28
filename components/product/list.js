@@ -42,7 +42,9 @@ const List = () => {
                     <div className="col-lg-4 col-md-8 col-sm-10 image-container">
                       <div className="card-inner-container">
                         <Link href={`/product/${item.ProductId}`}>
-                          <img src={`${host}resources/${item.image}`} />
+                          <img
+                            src={`${host}resources/${item.image[0].filename}`}
+                          />
                           {/* <img src="/resource/images/product-images/angle.jpeg" /> */}
                           <span>
                             <p className="tshirt-price">
