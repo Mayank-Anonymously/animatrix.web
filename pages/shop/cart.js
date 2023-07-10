@@ -18,7 +18,6 @@ const Cart = () => {
   useEffect(() => {
     GetCart({ setCartData, id, setQtyUpdate });
   }, [qtyUpdate]);
-  console.log(qtyUpdate);
   return (
     <>
       {qtyUpdate === true ? (

@@ -70,7 +70,6 @@ const Details = ({ details }) => {
       },
     ],
   };
-  console.log("details:", image);
   return (
     <section id="product-details">
       <div class="auto-container">

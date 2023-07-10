@@ -10,7 +10,6 @@ const GetCart = ({ setCartData, setQtyUpdate }) => {
   axios
     .request(options)
     .then(function (response) {
-      console.log("ApiCalled");
       setCartData(response.data.response);
       setQtyUpdate(false);
     })

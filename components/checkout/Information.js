@@ -80,6 +80,7 @@ const Information = ({ cartData }) => {
                     <div className="bill-product">
                       <h6 className="my-0">{item.title}</h6>
                       <small className="text-muted">Size</small>
+                      <strong className="text-muted"> : {item.selSize}</strong>
                     </div>
                     <span className="text-muted">₹{item.priceSale}</span>
                   </li>
@@ -175,9 +176,7 @@ const Information = ({ cartData }) => {
               </div>
 
               <div className="mb-3">
-                <label for="email">
-                  Email <span className="text-muted">(Optional)</span>
-                </label>
+                <label for="email">Email</label>
                 <input
                   type="email"
                   className="form-control"
