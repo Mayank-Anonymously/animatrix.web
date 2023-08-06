@@ -22,7 +22,6 @@ const index = () => {
     ProductId,
   } = cartData;
 
-  console.log(cartData);
   useEffect(() => {
     GetCart({ setCartData, setQtyUpdate });
   }, []);

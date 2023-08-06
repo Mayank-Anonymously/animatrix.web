@@ -177,9 +177,9 @@ const Cart = () => {
                       </div>
                     </span>
                   </div>
-                  <div class="col col-lg-5 col-md-8 col-sm-8 receipt-view">
+                  {/* <div class="col col-lg-5 col-md-8 col-sm-8 receipt-view">
                     Work In Progress
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

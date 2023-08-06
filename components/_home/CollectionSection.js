@@ -33,7 +33,7 @@ const CollectionSection = () => {
                             style={{ textAlign: "center" }}
                           >
                             <p className="collection-para">{item.title}</p>
-                            <Link href={`/product/${item._id}`}>
+                            <Link href={`/product/${item.ProductId}`}>
                               <button className="collection-btn">
                                 Buy Now
                               </button>

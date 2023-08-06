@@ -1,7 +1,6 @@
 import axios from "axios";
 import { host } from "static";
 const GetProductById = ({ setProductData, id }) => {
-  console.log(id);
   const options = {
     method: "GET",
     url: `${host}${id}/getProductById`,

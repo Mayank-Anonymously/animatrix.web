@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { host } from "static";
 
 const Imagebanner = ({ imagebtn }) => {
   return (
@@ -7,7 +8,7 @@ const Imagebanner = ({ imagebtn }) => {
       <div
         className="container-fluid image-banner"
         style={{
-          backgroundImage: `url("/resource/images/category.jpg")`,
+          backgroundImage: `url(${host}/resources/category.jpg)`,
         }}
       >
         <div className="container">

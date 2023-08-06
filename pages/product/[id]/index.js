@@ -22,11 +22,13 @@ const index = () => {
     productCode,
     quantity,
     inStock,
+    size,
   } = productData;
+
   useEffect(() => {
     GetProductById({ setProductData, id });
   }, []);
-  console.log(productData);
+
   return (
     <div>
       <Seo />
