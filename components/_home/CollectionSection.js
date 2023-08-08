@@ -23,7 +23,7 @@ const CollectionSection = () => {
               <div className="auto-container">
                 <div className="row card-container collection-card">
                   <h2 className="collection-head">Our Best Sellers</h2>
-                  {productData.slice(0, 3).map((item, index) => {
+                  {productData.slice(0, 5).map((item, index) => {
                     return (
                       <div className="col-lg-4 col-md-8 col-sm-10 image-container">
                         <div className="card-inner-container">

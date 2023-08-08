@@ -2886,6 +2886,9 @@ margin-bottom: 5px;
 .product-details{
       margin-top: 37px;
 }
+#product-details .auto-container .details-container{
+  margin-top: 23px;
+}
 .slick-div-custom{
   overflow-x: hidden;
 }
@@ -2941,4 +2944,12 @@ margin-bottom: 5px;
     padding: 15px;
     border-radius: 9px;
     margin-bottom: 30px;
+}
+
+
+.condition-container {
+  margin: 50px 0px;
+}
+.condition-container p{
+  font-weight: 500;
 }

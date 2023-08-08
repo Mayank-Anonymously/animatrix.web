@@ -50,9 +50,9 @@ const NavbarSection = () => {
             <li class="nav-item">
               <Link href="/shop">SHOP</Link>
             </li>
-            <li class="nav-item">
+            {/* <li class="nav-item">
               <Link href="/services">SERVICES</Link>
-            </li>
+            </li> */}
             <li class="nav-item">
               <Link href="/#contact">CONTACT</Link>
             </li>

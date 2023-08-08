@@ -20,11 +20,10 @@ const Footer = () => {
 
         <div class="content_2">
           <h4>About Our Shop</h4>
-          <Link href="#sellers">Contact</Link>
-          <Link href="#sellers">Imprint</Link>
-          <Link href="#sellers">Return Policy</Link>
-          <Link href="#sellers">Delivery Policy</Link>
-          <Link href="#sellers">Cookie Settings</Link>
+          <Link href="/">Home</Link>
+          <Link href="/shop">Shop</Link>
+          <Link href="/refund">Refund Policy</Link>
+          <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms and Condtions</Link>
         </div>
         {/* <div class="content_3">
