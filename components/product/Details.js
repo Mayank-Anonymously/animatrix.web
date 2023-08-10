@@ -29,8 +29,9 @@ const Details = ({ details }) => {
     ProductId,
   } = details;
 
-  const WithSize = { ...details, selSize: productSize };
-  const navigatetocart = () => {
+  const WithSize = { ...details, selSize: productSize, quantity: 1 };
+  console.log("WithSize:", WithSize);
+  const navigatetocart = (index) => {
     AddToCart({ WithSize });
     router.push("/shop/cart");
   };
@@ -130,9 +131,6 @@ const Details = ({ details }) => {
                   </div>
                   <span class="cart-and-wishlist-btn">
                     <div
-                      // href={`https://api.whatsapp.com/send?phone=919971790511&text=Product-Name:${JSON.stringify(
-                      //   object
-                      // )}`}
                       class="add-to-cart-btn"
                       onClick={() => navigatetocart()}
                     >

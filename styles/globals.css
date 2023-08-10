@@ -2953,3 +2953,85 @@ margin-bottom: 5px;
 .condition-container p{
   font-weight: 500;
 }
+.payment-main{
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+ margin-top: 100px;
+}
+
+.success-container {
+           
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+      .success-container  .icon {
+            font-size: 60px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+     .success-container   h1 {
+            color: #4996ff;
+        }
+      .success-container  p {
+            color: #666;
+        }
+
+        .payment-details{
+    
+          display: flex;
+    justify-content: space-around;
+    color: #666;
+        }
+        .continue-btn{
+          display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .payment-details p{
+          font-weight: 500;
+        }
+        .failed-main{
+          margin-top: 110px;
+        }
+        .failed-container{
+          width: 500px;
+        }
+        .failed-details h3{
+          text-align: center;
+          margin: 20px 0px;
+        }
+        .failed-amount{
+          display: flex;
+    gap: 16px;
+        }
+        .failed-amount p{
+          font-weight: 500;
+        }
+        .failed-amount span{
+          color: #666;
+        }
+        .failed-details span{
+              color: #666;
+        }
+        .retry-btn{
+          display: inline-block;
+    padding: 10px 20px;
+    background-color: #d75a4a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+        }
