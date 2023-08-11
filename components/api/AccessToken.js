@@ -6,7 +6,6 @@ const AccessToken = () => {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data.token);
       localStorage.setItem("token", JSON.stringify(response.data.token));
     })
     .catch(function (error) {

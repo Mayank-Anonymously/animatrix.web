@@ -7,14 +7,39 @@ import { useLocation } from "react-router-dom";
 import { host } from "static";
 
 const Payment = (props) => {
-  const { orderid, data } = props;
-  const [getPaymentDetails, setPaymentDetails] = useState([]);
+  const { orderid } = props;
   const router = useRouter();
-  const details = data.customerDetails;
-  const total = data.total;
+  const [getPaymentDetails, setPaymentDetails] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const [errorText, setErrorText] = useState("");
+  const OrderByID = async () => {
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    setLoading(true);
+    const apifetch = await fetch(
+      `${host}order/getOrderByOrderId/${orderid}`,
+      requestOptions
+    );
+    const response = await apifetch.json();
+    if (response) {
+      const data = response.response;
+      CreatePayment({ data, orderid, setPaymentDetails, router });
+
+      setLoading(false);
+    } else {
+      setLoading(false);
+      setErrorText("Some Error Occured While Fetching Data");
+    }
+  };
 
   useEffect(() => {
-    CreatePayment({ details, orderid, total, setPaymentDetails, router });
+    // if (data.length !== 0) {
+    // }
+    OrderByID();
   }, []);
 
   return (
@@ -26,17 +51,7 @@ const Payment = (props) => {
 
 export const getServerSideProps = async (context) => {
   const { orderid } = context.query;
-  var requestOptions = {
-    method: "GET",
 
-    redirect: "follow",
-  };
-  const apifetch = await fetch(
-    `${host}order/getOrderByOrderId/${orderid}`,
-    requestOptions
-  );
-  const response = await apifetch.json();
-  console.log(response);
-  return { props: { orderid: orderid, data: response.response } };
+  return { props: { orderid: orderid } };
 };
 export default Payment;
