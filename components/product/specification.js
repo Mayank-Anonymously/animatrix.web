@@ -9,7 +9,10 @@ const Specification = () => {
           <Accordion.Header>Size</Accordion.Header>
           <Accordion.Body>
             <ul>
-              <li>40 x 30 x 0,3 cm (15,7 x 11,9 x 0,12 inches).</li>
+              <li>Small - 42</li>
+              <li>Medium - 43.5</li>
+              <li>Large - 45</li>
+              <li>Extra Large - 46</li>
             </ul>
           </Accordion.Body>
         </Accordion.Item>
@@ -17,10 +20,10 @@ const Specification = () => {
           <Accordion.Header>Product Details</Accordion.Header>
           <Accordion.Body>
             <ul>
-              <li>Original oil painting on wooden board</li>
-              <li>Date of origin: 19.02.2022</li>
-              <li>Unframed, signature on the back</li>
-              <li>Certificate of authenticity included </li>
+              <li>100% Cotton Bio Washed</li>
+              <li>180GSM Fabric weight</li>
+              <li>Breathable and top quality fabric</li>
+              <li>Long Lasting 3D Puff and screen printing </li>
             </ul>
           </Accordion.Body>
         </Accordion.Item>

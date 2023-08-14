@@ -13,12 +13,11 @@ const terms = () => {
       />
       <div className="container condition-container">
         <p>
-          This website is operated by ANIMATRIX ( D& A LIFESTYLE PVT LTD) .
-          Throughout the site, the terms “we”, “us” and “our” refer to
-          ANIMATRIX. ANIMATRIX offers this website, including all information,
-          tools and services available from this site to you, the user,
-          conditioned upon your acceptance of all terms, conditions, policies
-          and notices stated here.
+          This website is operated by ANIMATRIX ( Limra Enterprise) . Throughout
+          the site, the terms “we”, “us” and “our” refer to ANIMATRIX. ANIMATRIX
+          offers this website, including all information, tools and services
+          available from this site to you, the user, conditioned upon your
+          acceptance of all terms, conditions, policies and notices stated here.
         </p>
         <p>
           By visiting our site and/ or purchasing something from us, you engage
@@ -46,7 +45,7 @@ const terms = () => {
           your responsibility to check this page periodically for changes. Your
           continued use of or access to the website following the posting of any
           changes constitutes acceptance of those changes. "ANIMATRIX" is a
-          trademark of D&A LIFESTYLE PRIVATE L.T.D
+          trademark of Limra Enterprise
         </p>
         <p>
           Our store is hosted on Shopify Inc. They provide us with the online
@@ -354,8 +353,8 @@ const terms = () => {
         <strong>SECTION 19- CONTACT INFORMATION</strong>
         <p>
           Questions about the Terms of Service should be sent to us at
-          animatrix.am@gmail.com ANIMATRIX | ANIMATRIX IS A TRADEMARK OF D&A
-          LIFESTYLE PRIVATE LTD
+          animatrix.am@gmail.com ANIMATRIX | ANIMATRIX IS A TRADEMARK OF Limra
+          Enterprise.
         </p>
       </div>
       <Footer />

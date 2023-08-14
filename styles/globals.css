@@ -3035,3 +3035,64 @@ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     text-decoration: none;
         }
+
+
+
+        /* Size modal ****************************************************************** */
+
+
+
+.image-modal-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.image-modal-container img {
+  max-width: 500px;
+}
+.size-btn{
+  background: none;
+    border: none;
+    color: #333333ab;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.image-content {
+    background-color: white!important;
+    padding: 20px;
+    border-radius: 8px!important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    position: relative!important;
+    text-align: center;
+    width: 625px!important;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {.image-modal-container img {
+    max-width: 300px;
+}
+
+.image-content {
+  width: 394px!important;
+}
+}
+
