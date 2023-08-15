@@ -11,7 +11,6 @@ const Payment = (props) => {
   const router = useRouter();
   const [getPaymentDetails, setPaymentDetails] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const [errorText, setErrorText] = useState("");
   const OrderByID = async () => {
     var requestOptions = {
@@ -28,8 +27,8 @@ const Payment = (props) => {
     if (response) {
       const data = response.response;
       CreatePayment({ data, orderid, setPaymentDetails, router });
-
       setLoading(false);
+      setErrorText("");
     } else {
       setLoading(false);
       setErrorText("Some Error Occured While Fetching Data");
@@ -44,7 +43,9 @@ const Payment = (props) => {
 
   return (
     <div className="container d-flex justify-content-center align-items-center">
-      Payment
+      {errorText === ""
+        ? "Wait While We Redirect You To Payment Page."
+        : errorText}
     </div>
   );
 };
