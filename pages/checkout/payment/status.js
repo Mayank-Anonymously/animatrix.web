@@ -1,5 +1,6 @@
 import AccessToken from "components/api/AccessToken";
 import GetDetailsByRequestId from "components/api/GetDetailsByRequestId";
+import GetOrderByOrderId from "components/api/GetOrderByOrderId";
 import GetPaymentsByRequestId from "components/api/GetPaymentStatus";
 import Failed from "components/paymentstatus/Failed";
 import Success from "components/paymentstatus/Success";
@@ -8,11 +9,12 @@ import React, { useEffect, useState } from "react";
 
 const status = (props) => {
   const { payment_request_id, payment_id } = props;
-  const [orderDetails, setOrderDetails] = useState([]);
+  const [orderDetails, setDetails] = useState([]);
   const [paymentDetails, setPaymentDetails] = useState([]);
+
   useEffect(() => {
     AccessToken();
-    GetDetailsByRequestId({ payment_request_id, setOrderDetails });
+    GetDetailsByRequestId({ payment_request_id, setDetails });
     GetPaymentsByRequestId({ payment_id, setPaymentDetails });
   }, []);
 
@@ -31,12 +33,10 @@ const status = (props) => {
       ? "Your order is currently being processed and is marked as pending. Please keep in mind that your things will not be dispatched until your payment has been successfully processed. We are delighted to notify you that your payment for the order with Animatrix has been processed successfully"
       : "";
 
-  console.log(orderDetails);
-  console.log(paymentDetails);
   return (
     <div>
       {orderDetails.status === "Completed" && paymentDetails.status === true ? (
-        <Success success={success} />
+        <Success success={success} orderDetails={orderDetails} />
       ) : orderDetails.status === "Pending" ||
         (orderDetails.status === "Sent" && paymentDetails.status === false) ? (
         <Failed Failure={Failure} />

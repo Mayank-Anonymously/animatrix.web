@@ -9,7 +9,6 @@ const GetOrderByOrderId = ({ orderid, setOrderDetails }) => {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
       setOrderDetails(response.data.response);
     })
     .catch(function (error) {

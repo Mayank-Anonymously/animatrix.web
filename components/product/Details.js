@@ -125,10 +125,10 @@ const Details = ({ details }) => {
                         value={productSize}
                         onChange={(e) => setProductSize(e.target.value)}
                       >
-                        <option value="small">S</option>
-                        <option value="medium">M</option>
-                        <option value="large">L</option>
-                        <option value="xtra">XL</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
                       </select>
                     </div>
                     <Size sizeUrl="/resource/images/size.jpeg" />

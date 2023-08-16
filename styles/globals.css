@@ -1711,6 +1711,7 @@ iframe {
   align-items: center;
   border-radius: 10px;
   min-height: 440px;
+  max-height: 440px;
 
 }
 

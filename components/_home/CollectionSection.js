@@ -24,17 +24,33 @@ const CollectionSection = () => {
                 <div className="row card-container collection-card">
                   <h2 className="collection-head">Our Best Sellers</h2>
                   {productData.slice(0, 5).map((item, index) => {
+                    console.log(item.image);
                     return (
                       <div className="col-lg-4 col-md-8 col-sm-10 image-container">
                         <div className="card-inner-container">
-                          <img
-                            src={`${host}resources/${item.image[0].filename}`}
-                          />
+                          {item.title === "Fallen Angel" ? (
+                            <img
+                              src={`${host}resources/${item.image[3].filename}`}
+                            />
+                          ) : item.title === "Money Over Honey" ? (
+                            <img
+                              src={`${host}resources/${item.image[4].filename}`}
+                            />
+                          ) : (
+                            <img
+                              src={`${host}resources/${item.image[2].filename}`}
+                            />
+                          )}
+
                           <div
                             className="tshirt-detail"
                             style={{ textAlign: "center" }}
                           >
                             <p className="collection-para">{item.title}</p>
+                            <span id="price">
+                              <h5>Rs.{item.priceSale}</h5>
+                              <h6>Rs.{item.price}</h6>
+                            </span>
                             <Link href={`/product/${item.ProductId}`}>
                               <button className="collection-btn">
                                 Buy Now

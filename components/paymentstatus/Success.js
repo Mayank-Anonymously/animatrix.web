@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Lottie from "react-lottie";
 import * as animationData from "../../animation/checked.json";
 import Link from "next/link";
+import GetOrderByOrderId from "components/api/GetOrderByOrderId";
+import Mail from "components/Mail";
 
-const Success = ({ success }) => {
+const Success = ({ success, orderDetails }) => {
+  const [orderDetail, setOrderDetails] = useState([]);
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -12,6 +16,11 @@ const Success = ({ success }) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  const orderid = orderDetails.purpose;
+  useEffect(() => {
+    GetOrderByOrderId({ orderid, setOrderDetails });
+  }, []);
+
   return (
     <>
       <div className="container payment-main d-flex">
@@ -36,6 +45,7 @@ const Success = ({ success }) => {
           <img style={{ width: "500px" }} src="/resource/images/success.jpg" />
         </div>
       </div>
+      <Mail data={orderDetail} />
     </>
   );
 };

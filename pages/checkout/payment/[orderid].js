@@ -3,9 +3,9 @@ import CreatePayment from "components/api/CreatePayment";
 import GetOrderByOrderId from "components/api/GetOrderByOrderId";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import Lottie from "react-lottie";
 import { host } from "static";
-
+import redirectload from "../../../animation/redirect.json";
 const Payment = (props) => {
   const { orderid } = props;
   const router = useRouter();
@@ -36,16 +36,29 @@ const Payment = (props) => {
   };
 
   useEffect(() => {
-    // if (data.length !== 0) {
-    // }
     OrderByID();
   }, []);
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: redirectload,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const Redirectloader = () => {
+    return (
+      <div className="container-fluid justify-content-center align-items-center text-center">
+        <Lottie options={defaultOptions} width={400} height={300} />
+        <h3>Wait While We Redirect You To Payment Page.</h3>
+      </div>
+    );
+  };
 
   return (
     <div className="container d-flex justify-content-center align-items-center">
-      {errorText === ""
-        ? "Wait While We Redirect You To Payment Page."
-        : errorText}
+      {errorText === "" ? <Redirectloader /> : errorText}
     </div>
   );
 };

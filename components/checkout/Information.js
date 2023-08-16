@@ -17,7 +17,7 @@ const Information = ({ cartData }) => {
       lastName: "",
       email: "",
       address: "",
-      address2: "",
+      // address2: "",
       country: "",
       state: "",
       zip: "",
@@ -41,7 +41,6 @@ const Information = ({ cartData }) => {
     onSubmit: (values) => {
       // CreatePayment();
       CreateOrder(values, ProductOrderDetails);
-      alert(values);
     },
   });
 
@@ -50,11 +49,8 @@ const Information = ({ cartData }) => {
   const ProductOrderDetails = cartData.map((item, index) => {
     return {
       ProductId: item.ProductId,
-
       ProductName: item.title,
-
       ProductImage: item.image,
-
       Price: item.priceSale,
       quantity: item.quantity,
     };
@@ -242,21 +238,6 @@ const Information = ({ cartData }) => {
                 </span>
               </div>
 
-              <div className="mb-3">
-                <label for="address2">Address 2</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="address2"
-                  name="address2"
-                  placeholder="Apartment or suite"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.address2}
-                  controlId="address2"
-                />
-              </div>
-
               <div className="row">
                 <div className="col-md-5 mb-3">
                   <label for="country">Country</label>
@@ -375,7 +356,7 @@ const Information = ({ cartData }) => {
               </div> */}
               <hr className="mb-4" />
 
-              <h4 className="mb-3">Payment method</h4>
+              <h4 className="mb-3">Payment</h4>
 
               {/* <div className="d-block my-3">
                 <div className="custom-control custom-radio">
@@ -490,7 +471,7 @@ const Information = ({ cartData }) => {
                 //   values.city
                 // },phone:${values.phone},ProductDetails:${left}`}
               >
-                Continue to checkout
+                Continue to payment
               </button>
             </form>
           </div>

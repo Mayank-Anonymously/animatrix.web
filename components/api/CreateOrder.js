@@ -7,25 +7,16 @@ const CreateOrder = ({ values, ProductOrderDetails, router }) => {
   }, 0);
   const Orderdetails = {
     userId: "0",
-
     orderDetails: ProductOrderDetails,
-
     customerDetails: {
       Name: values.firstName + "-" + values.lastName,
-
       AddressOne: values.address,
-
       City: values.city,
-
       State: values.state,
-
       Pincode: values.zip,
-
       Email: values.email,
-
       ContactNumber: values.phone,
     },
-
     total: totalPrice,
   };
 
@@ -40,7 +31,6 @@ const CreateOrder = ({ values, ProductOrderDetails, router }) => {
     .request(options)
     .then(function (response) {
       const result = response.data.response;
-
       router.push(`/checkout/payment/${result.OrderId}`);
     })
     .catch(function (error) {
