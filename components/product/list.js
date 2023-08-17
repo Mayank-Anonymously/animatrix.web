@@ -41,27 +41,36 @@ const List = () => {
                   <>
                     <div className="col-lg-4 col-md-8 col-sm-10 image-container">
                       <div className="card-inner-container">
-                        <Link href={`/product/${item.ProductId}`}>
+                        {item.title === "Fallen Angel" ? (
                           <img
-                            src={`${host}resources/${item.image[0].filename}`}
+                            src={`${host}resources/${item.image[1].filename}`}
                           />
-                          {/* <img src="/resource/images/product-images/angle.jpeg" /> */}
-                          <span>
-                            <p className="tshirt-price">
-                              {item.title} - {item.categoryName}
-                            </p>
-                            <span id="price">
-                              <h5>Rs.{item.priceSale}</h5>
-                              <h6>Rs.{item.price}</h6>
-                              <button
-                                className="collection-btn"
-                                style={{ padding: "0px 30px" }}
-                              >
-                                Buy Now
-                              </button>
-                            </span>
+                        ) : item.title === "Money Over Honey" ? (
+                          <img
+                            src={`${host}resources/${item.image[4].filename}`}
+                          />
+                        ) : (
+                          <img
+                            src={`${host}resources/${item.image[2].filename}`}
+                          />
+                        )}
+
+                        <div
+                          className="tshirt-detail"
+                          style={{ textAlign: "center" }}
+                        >
+                          <p className="collection-para">{item.title}</p>
+                          <span id="price">
+                            <h5>Rs.{item.priceSale}</h5>
+                            <h6 style={{ marginRight: "10px" }}>
+                              Rs.{item.price}
+                            </h6>
+                            <p className="discount-price">56%</p>
                           </span>
-                        </Link>
+                          <Link href={`/product/${item.ProductId}`}>
+                            <button className="collection-btn">Buy Now</button>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </>

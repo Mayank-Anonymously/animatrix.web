@@ -30,7 +30,7 @@ const CollectionSection = () => {
                         <div className="card-inner-container">
                           {item.title === "Fallen Angel" ? (
                             <img
-                              src={`${host}resources/${item.image[3].filename}`}
+                              src={`${host}resources/${item.image[1].filename}`}
                             />
                           ) : item.title === "Money Over Honey" ? (
                             <img
@@ -49,7 +49,10 @@ const CollectionSection = () => {
                             <p className="collection-para">{item.title}</p>
                             <span id="price">
                               <h5>Rs.{item.priceSale}</h5>
-                              <h6>Rs.{item.price}</h6>
+                              <h6 style={{ marginRight: "10px" }}>
+                                Rs.{item.price}
+                              </h6>
+                              <p className="discount-price">56%</p>
                             </span>
                             <Link href={`/product/${item.ProductId}`}>
                               <button className="collection-btn">

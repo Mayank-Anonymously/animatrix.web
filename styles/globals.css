@@ -1712,6 +1712,7 @@ iframe {
   border-radius: 10px;
   min-height: 440px;
   max-height: 440px;
+  min-width: 100%;
 
 }
 
@@ -3097,3 +3098,9 @@ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 }
 
+.discount-price{
+      background: #d80c1b;
+    color: white;
+    font-weight: 500;
+    padding: 2px;
+}

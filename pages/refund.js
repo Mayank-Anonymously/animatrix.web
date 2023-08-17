@@ -13,7 +13,7 @@ const refund = () => {
       />
       <div className="container condition-container text-center">
         <h3>
-          All Refunds will be made within 14 business days of receiving the
+          All Refunds will be made within 7 business days of receiving the
           product.
         </h3>
         <h3 style={{ marginTop: "50px" }}>
