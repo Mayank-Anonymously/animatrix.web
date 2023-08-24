@@ -3092,6 +3092,25 @@ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 @media screen and (max-width: 768px) {.image-modal-container img {
     max-width: 300px;
 }
+.video-banner{
+display: block!important;
+}
+.launch-heading {
+  font-size: 44px!important;
+}
+.homebanner{
+  display: none!important;
+}
+.type-heading-video{
+   padding-top: 0px !important;
+  display: flex;
+  font-size: 20px!important;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 
 .image-content {
   width: 394px!important;
@@ -3103,4 +3122,25 @@ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     color: white;
     font-weight: 500;
     padding: 2px;
+}
+.video-banner {
+  display: none;
+}
+.video-banner {
+  height: 100vh;
+  margin-top: -119px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.video-banner h1 {
+  padding-top: 265px;
+  font-size: 65px;
+  color: white;
+  margin-bottom: 0;
+  text-align: center;
+  margin-bottom: 0px !important;
+  letter-spacing: 1px;
+}
+.homebanner{
+  display: block;
 }

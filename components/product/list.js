@@ -65,7 +65,7 @@ const List = () => {
                             <h6 style={{ marginRight: "10px" }}>
                               Rs.{item.price}
                             </h6>
-                            <p className="discount-price">56%</p>
+                            <p className="discount-price">44%</p>
                           </span>
                           <Link href={`/product/${item.ProductId}`}>
                             <button className="collection-btn">Buy Now</button>
