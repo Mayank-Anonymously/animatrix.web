@@ -18,7 +18,7 @@ const refund = () => {
         </h3>
         <h3 style={{ marginTop: "50px" }}>
           Pre-paid Orders Customers will receive funds in the same account used
-          during payment on www.animatrix.store for their purchase.
+          during payment on www.asfiya art shop.store for their purchase.
         </h3>
         <h3 style={{ marginTop: "50px" }}>
           Refund amount will exclude any shipping charges paid at the time of

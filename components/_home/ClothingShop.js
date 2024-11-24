@@ -23,7 +23,7 @@ const ClothingShop = () => {
           <div className="col-md-8">
             <img
               style={{ width: "100%", height: "90%" }}
-              src={`${host}resources/tshirtbg.jpg`}
+              src={`/resources/images/eye-bg.jpeg`}
             />
           </div>
         </div>

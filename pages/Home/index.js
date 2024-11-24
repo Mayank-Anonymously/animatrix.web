@@ -17,15 +17,6 @@ const index = () => {
       <section id="collection">
         <CollectionSection />
       </section>
-      {/* <section id="categorySection">
-        <Categories />
-      </section> */}
-
-      {/* <section id="collection">
-
-      <Testimoials />
-      </section> */}
-
       <section id="contact">
         <ContactSection />
       </section>

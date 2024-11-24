@@ -7,7 +7,7 @@ const Footer = () => {
       {" "}
       <div class="footer-container container">
         <div class="content_1">
-          <img src={"/resource/images/logo.png"} alt="logo" />
+          <img src={"/resources/images/art-logo.png"} alt="logo" />
           <p>
             The customer is at the heart of our
             <br />

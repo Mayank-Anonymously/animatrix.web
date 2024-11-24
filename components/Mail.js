@@ -75,7 +75,7 @@ For what reason would it be advisable for me to think about business content? Th
                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
                         <tr>
                             <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" class="mobile-center">
-                                <h1 style="font-size: 36px; font-weight: 800; margin: 0; color: #ffffff;">Animatrix</h1>
+                                <h1 style="font-size: 36px; font-weight: 800; margin: 0; color: #ffffff;">asfiya art shop</h1>
                             </td>
                         </tr>
                     </table>
@@ -88,10 +88,10 @@ For what reason would it be advisable for me to think about business content? Th
                                 <table cellspacing="0" cellpadding="0" border="0" align="right">
                                     <tr>
                                         <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400;">
-                                            <p style="font-size: 18px; font-weight: 400; margin: 0; color: #ffffff;"><a href="https://www.animatrix.store/" target="_blank" style="color: #ffffff; text-decoration: none;">Shop &nbsp;</a></p>
+                                            <p style="font-size: 18px; font-weight: 400; margin: 0; color: #ffffff;"><a href="https://www.asfiya art shop.store/" target="_blank" style="color: #ffffff; text-decoration: none;">Shop &nbsp;</a></p>
                                         </td>
                                         <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 24px;">
-                                            <a href="https://www.animatrix.store/" target="_blank" style="color: #ffffff; text-decoration: none;"><img src="https://img.icons8.com/color/48/000000/small-business.png" width="27" height="23" style="display: block; border: 0px;"/></a>
+                                            <a href="https://www.asfiya art shop.store/" target="_blank" style="color: #ffffff; text-decoration: none;"><img src="https://img.icons8.com/color/48/000000/small-business.png" width="27" height="23" style="display: block; border: 0px;"/></a>
                                         </td>
                                     </tr>
                                 </table>
@@ -211,7 +211,7 @@ For what reason would it be advisable for me to think about business content? Th
       headers: { "Content-Type": "application/json" },
       data: {
         template: template,
-        from: "animatrix.am@gmail.com",
+        from: "asfiya art shop.am@gmail.com",
         to: "craftaar0@gmail.com",
       },
     };

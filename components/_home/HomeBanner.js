@@ -8,7 +8,7 @@ const Homebanner = () => {
       <div
         className="container-fluid homebanner"
         style={{
-          backgroundImage: `url("/resource/images/storeimg.png")`,
+          backgroundImage: `url("/resources/images/background.jpeg")`,
           backgroundBlendMode: "multiply",
           backgroundColor: "#00000045",
         }}
@@ -18,7 +18,7 @@ const Homebanner = () => {
           JUST DROPPED
         </h1>
         <h1 data-aos="fade-up" className="type-heading">
-          EXPLORE NEW ARRIVALS
+          EXPLORE NEW CANVAS
         </h1>
         {/* <h5>UP TO 40% OFF</h5> */}
         <div data-aos="fade-in" className="redirect-btn">
@@ -35,7 +35,7 @@ const Homebanner = () => {
       <div
         className="container-fluid video-banner"
         style={{
-          backgroundImage: `url("/resource/images/mobile.gif")`,
+          backgroundImage: `url("/resources/images/background.jpeg")`,
           backgroundBlendMode: "multiply",
           backgroundColor: "#00000045",
         }}
@@ -48,7 +48,7 @@ const Homebanner = () => {
           JUST DROPPED
         </h1>
         <h1 data-aos="fade-up" className="type-heading-video">
-          EXPLORE NEW ARRIVALS
+          EXPLORE NEW CANVAS
         </h1>
         {/* <h5>UP TO 40% OFF</h5> */}
         <div data-aos="fade-in" className="redirect-btn">

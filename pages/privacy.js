@@ -37,8 +37,8 @@ const privacy = () => {
         <p>
           If after you opt-in, you change your mind, you may withdraw your
           consent for us to contact you, for the continued collection, use or
-          disclosure of your information, at anytime, by contacting us at
-          animatrix.am@gmail.com or mailing us at:
+          disclosure of your information, at anytime, by contacting us at asfiya
+          art shop.am@gmail.com or mailing us at:
         </p>
         <p>Gaur City Center</p>
         <p>Gaur City 1</p>
@@ -115,7 +115,7 @@ const privacy = () => {
         <p>
           If you would like to: access, correct, amend or delete any personal
           information we have about you, register a complaint, or simply want
-          more information contact us animatrix.am@gmail.com
+          more information contact us asfiya art shop.am@gmail.com
         </p>
       </div>
       <Footer />

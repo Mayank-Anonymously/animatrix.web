@@ -6,14 +6,36 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { host } from "static";
+const productData = [
+  {
+    id: 1,
+    image: "/resources/images/image-one.jpeg",
+  },
+  {
+    id: 2,
+    image: "/resources/images/image-two.jpeg",
+  },
+  {
+    id: 3,
+    image: "/resources/images/image-three.jpeg",
+  },
+  {
+    id: 4,
+    image: "/resources/images/image-four.jpeg",
+  },
+  {
+    id: 5,
+    image: "/resources/images/image-five.jpeg",
+  },
+  {
+    id: 6,
+    image: "/resources/images/image-six.jpeg",
+  },
+];
 const List = () => {
   const router = useRouter();
   const { cd } = router.query;
-  const [productData, setProductData] = useState([]);
   const [checkState, setCheckState] = useState("");
-  useEffect(() => {
-    GetAllProduct({ setProductData, setCheckState });
-  }, [productData]);
 
   const filteredData = productData.filter(
     (item, index) => cd == item.categoryId
@@ -23,8 +45,8 @@ const List = () => {
     <>
       <SecondBanner
         mainhead="Our Collection"
-        title="Unleash Your Style With Us"
-        image={"/resource/images/redbg.jpeg"}
+        title=""
+        image={"/resources/images/collection-banner.png"}
       />
       <div id="product-List">
         <div className="auto-container">
@@ -41,21 +63,9 @@ const List = () => {
                   <>
                     <div className="col-lg-4 col-md-8 col-sm-10 image-container">
                       <div className="card-inner-container">
-                        {item.title === "Fallen Angel" ? (
-                          <img
-                            src={`${host}resources/${item.image[1].filename}`}
-                          />
-                        ) : item.title === "Money Over Honey" ? (
-                          <img
-                            src={`${host}resources/${item.image[4].filename}`}
-                          />
-                        ) : (
-                          <img
-                            src={`${host}resources/${item.image[2].filename}`}
-                          />
-                        )}
+                        <img src={item.image} />
 
-                        <div
+                        {/* <div
                           className="tshirt-detail"
                           style={{ textAlign: "center" }}
                         >
@@ -70,7 +80,7 @@ const List = () => {
                           <Link href={`/product/${item.ProductId}`}>
                             <button className="collection-btn">Buy Now</button>
                           </Link>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </>
