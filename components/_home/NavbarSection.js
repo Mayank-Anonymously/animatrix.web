@@ -6,6 +6,7 @@ const NavbarSection = () => {
   const [isActive, setActive] = useState(false);
   const [navbar, setNavbar] = useState("navbar");
   const [navwrap, setNavwrap] = useState("nav-wrapper");
+
   const changeBackground = () => {
     if (window.scrollY >= 0.5) {
       setNavbar("sticky");
@@ -53,7 +54,7 @@ const NavbarSection = () => {
               <Link href="/services">SERVICES</Link>
             </li>
             <li class="nav-item">
-              <Link href="/contact">CONTACT</Link>
+              <Link href="/#contact">CONTACT</Link>
             </li>
           </ul>
         </nav>

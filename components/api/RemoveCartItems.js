@@ -1,7 +1,7 @@
 import axios from "axios";
 import { host } from "static";
 import swal from "sweetalert";
-const DeleteCartItem = (id) => {
+const DeleteCartItem = (id, setQtyUpdate) => {
   const options = {
     method: "PUT",
     url: `${host}cart/deleteCartItem/${id}`,
@@ -17,6 +17,7 @@ const DeleteCartItem = (id) => {
           text: "Item removed successfully.",
           icon: "success",
         });
+        setQtyUpdate(true);
       } else {
         null;
       }

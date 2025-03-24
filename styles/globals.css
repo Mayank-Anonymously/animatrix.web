@@ -1727,7 +1727,7 @@ iframe {
   display: flex;
   height: auto;
   min-width: 100vh;
-  margin: 10px 10px 10px 10px;
+  /* margin: 10px 10px 10px 10px; */
 }
 
 #product-List .auto-container {
@@ -2944,7 +2944,8 @@ body .specification .accordion-button {
 
 .slick-slide img {
   width: 300px;
-  margin-left: 100px
+  margin-left: 100px;
+  height: 460px
 }
 
 
@@ -2955,41 +2956,70 @@ body .specification .accordion-button {
   }
 }
 
-
-.size-span {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  border: 1px solid black;
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  cursor: pointer;
+.product-details {
+  margin-top: 37px;
 }
 
-.size-span:hover {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  border: 1px solid rgb(175, 141, 62);
-  color: rgb(175, 141, 62);
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  cursor: pointer;
+.slick-div-custom {
+  overflow-x: hidden;
+}
 }
 
-.size-span-selection {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  border: 1px solid rgb(175, 141, 62);
-  color: rgb(175, 141, 62);
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
+.size-selection {
+  margin-top: 20px;
+}
+
+.size-selection select {
+  margin-left: 10px;
+}
+
+
+.spin-loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #000;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
   display: flex;
-  cursor: pointer;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.checkout-span {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.payment-btn {
+  background: black;
+  color: white;
+  padding: 15px;
+  border-radius: 9px;
+  margin-bottom: 30px;
 }

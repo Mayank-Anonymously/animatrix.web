@@ -13,7 +13,7 @@ const List = () => {
   const [checkState, setCheckState] = useState("");
   useEffect(() => {
     GetAllProduct({ setProductData, setCheckState });
-  }, []);
+  }, [productData]);
 
   const filteredData = productData.filter(
     (item, index) => cd == item.categoryId
@@ -29,7 +29,11 @@ const List = () => {
       <div id="product-List">
         <div className="auto-container">
           {productData.length === 0 ? (
-            "Wait while we fetch products for you"
+            <>
+              <div className="loader">
+                <section class="spin-loader"></section>
+              </div>
+            </>
           ) : (
             <div className="row card-container">
               {productData.map((item, index) => {
@@ -37,8 +41,10 @@ const List = () => {
                   <>
                     <div className="col-lg-4 col-md-8 col-sm-10 image-container">
                       <div className="card-inner-container">
-                        <Link href={`/product/${item._id}`}>
-                          <img src={`${host}resources/${item.image}`} />
+                        <Link href={`/product/${item.ProductId}`}>
+                          <img
+                            src={`${host}resources/${item.image[0].filename}`}
+                          />
                           {/* <img src="/resource/images/product-images/angle.jpeg" /> */}
                           <span>
                             <p className="tshirt-price">

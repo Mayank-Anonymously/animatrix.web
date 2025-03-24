@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import { host } from "static";
+import DeleteCartItem from "components/api/RemoveCartItems";
+import { BsTrash } from "react-icons/bs";
 const Counter = ({ qty, id, setQtyUpdate }) => {
   const qtyNumber = parseInt(qty);
   const [counter, setCounter] = useState(qtyNumber);

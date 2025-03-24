@@ -7,12 +7,13 @@ import { host } from "static";
 import AddToCart from "components/api/AddToCart";
 import Slider from "react-slick";
 import axios from "axios";
+import Link from "next/link";
 
 const Details = ({ details }) => {
   const router = useRouter();
-  const [selected, setSelected] = useState(false);
   const { id } = router.query;
-  const [productSize, setProductSize] = useState("");
+  const [productData, setProductData] = useState([]);
+  const [productSize, setProductSize] = useState("S");
   const {
     _id,
     title,
@@ -29,8 +30,9 @@ const Details = ({ details }) => {
     size,
   } = details;
 
+  const WithSize = { ...details, selSize: productSize };
   const navigatetocart = () => {
-    AddToCart({ selSize: productSize, ...details });
+    AddToCart({ WithSize });
     router.push("/shop/cart");
   };
 
@@ -69,7 +71,6 @@ const Details = ({ details }) => {
       },
     ],
   };
-  console.log("details:", details);
   return (
     <section id="product-details">
       <div class="auto-container">
@@ -87,12 +88,13 @@ const Details = ({ details }) => {
           <div className="row">
             <div className="col-md-5 slick-div-custom">
               <Slider {...settings}>
-                <div>
-                  <img src={`${host}resources/${image}`} />
-                </div>
-                <div>
-                  <img src={`${host}resources/${image}`} />
-                </div>
+                {image.map((item, index) => {
+                  return (
+                    <div>
+                      <img src={`${host}resources/${item.filename}`} />
+                    </div>
+                  );
+                })}
               </Slider>
             </div>
             <div className="col-md-6">
@@ -103,40 +105,39 @@ const Details = ({ details }) => {
                   </span>
                   <span class="prices">
                     <h5>₹ {priceSale}</h5>
-                    <h6 style={{ textDecoration: "line-through" }}>
-                      ₹ {price}
-                    </h6>
+                    <h6>₹ {price}</h6>
                   </span>
-
-                  {/* <div class="size">
-                    {size.map((item, index) => (
-                      <>
-                        <span
-                          className={
-                            selected == true
-                              ? "size-span-selection"
-                              : "size-span"
-                          }
-                          onClick={() => setProductSize(item)}
-                        >
-                          {item}
-                        </span>
-                      </>
-                    ))}
-                  </div> */}
                   <span class="shipment-detail">
                     <p>
                       VAT not charged, plus shipping <br />
                       <strong>Free shipping</strong> on domestic orders over ₹50
                     </p>
                   </span>
-
+                  <div className="size-selection">
+                    <label style={{ fontWeight: "600" }} for="tshirt">
+                      Select Size
+                    </label>
+                    <select
+                      name="tshirt"
+                      id="tshirt-size"
+                      value={productSize}
+                      onChange={(e) => setProductSize(e.target.value)}
+                    >
+                      <option value="small">S</option>
+                      <option value="medium">M</option>
+                      <option value="large">L</option>
+                      <option value="xtra">XL</option>
+                    </select>
+                  </div>
                   <span class="cart-and-wishlist-btn">
                     <div
+                      // href={`https://api.whatsapp.com/send?phone=919971790511&text=Product-Name:${JSON.stringify(
+                      //   object
+                      // )}`}
                       class="add-to-cart-btn"
                       onClick={() => navigatetocart()}
                     >
-                      <button class="btn text-white"> Add to Cart</button>
+                      <button class="btn text-white">Buy Now</button>
                     </div>
                   </span>
                   <span class="delivery-timing">
@@ -153,6 +154,30 @@ const Details = ({ details }) => {
             </div>
           </div>
         </div>
+
+        {/* <Slider {...settings}>
+              <div>
+                <h3>1</h3>
+              </div>
+              <div>
+                <h3>2</h3>
+              </div>
+              <div>
+                <h3>3</h3>
+              </div>
+              <div>
+                <h3>4</h3>
+              </div>
+            </Slider> */}
+        {/* <div className="big-image">
+              <img src={`${host}resources/${image}`} />
+            </div>
+            <div className="image-thumbnail">
+              <img src="/resource/images/product-images/itachig.jpg" />
+              <img src="/resource/images/product-images/itachig.jpg" />
+              <img src="/resource/images/product-images/itachig.jpg" />
+              <img src="/resource/images/product-images/itachig.jpg" />
+            </div> */}
       </div>
     </section>
   );

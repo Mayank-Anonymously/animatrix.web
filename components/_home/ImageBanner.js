@@ -2,11 +2,14 @@ import Link from "next/link";
 import React from "react";
 import { host } from "static";
 
-const Imagebanner = ({ imagebtn }) => {
+const Imagebanner = ({ imagebtn, image }) => {
   return (
     <>
       <div
         className="container-fluid image-banner"
+        // style={{
+        //   backgroundImage: `url({${host}resources/${image}})`,
+        // }}
         style={{
           backgroundImage: `url(${host}/resources/category.jpg)`,
         }}
@@ -22,7 +25,7 @@ const Imagebanner = ({ imagebtn }) => {
             latest articles
           </h2>
           <div className="contact-btn text-center">
-            <Link href="/contact">
+            <Link href="/#contact">
               <button data-aos="fade-in" data-aos-delay="50">
                 {imagebtn}
               </button>

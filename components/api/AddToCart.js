@@ -1,12 +1,31 @@
 import React from "react";
 import axios from "axios";
 import { host } from "static";
-const AddToCart = ({ details }) => {
+const AddToCart = ({ WithSize }) => {
+  const Product = {
+    title: WithSize.title,
+    description: WithSize.description,
+    price: WithSize.price,
+    priceSale: WithSize.priceSale,
+    image: WithSize.image[0].filename,
+    categoryId: WithSize.categoryId,
+    categoryName: WithSize.categoryName,
+    productSku: WithSize.productSku,
+    productCode: WithSize.productCode,
+    quantity: WithSize.quantity,
+    size: WithSize.size,
+    inStock: WithSize.inStock,
+    stockQuantity: WithSize.stockQuantity,
+    specification: WithSize.specification,
+    ProductId: WithSize.ProductId,
+    selSize: WithSize.selSize,
+  };
+
   const options = {
     method: "POST",
     url: `${host}cart/addItemsToCart`,
     headers: { "Content-Type": "application/json" },
-    data: details,
+    data: Product,
   };
 
   axios
