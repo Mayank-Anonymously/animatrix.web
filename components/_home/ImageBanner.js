@@ -7,11 +7,8 @@ const Imagebanner = ({ imagebtn, image }) => {
     <>
       <div
         className="container-fluid image-banner"
-        // style={{
-        //   backgroundImage: `url({${host}resources/${image}})`,
-        // }}
         style={{
-          backgroundImage: `url(${host}/resources/category.jpg)`,
+          backgroundImage: "/resources/images/terms.jpg",
         }}
       >
         <div className="container">

@@ -8,6 +8,7 @@ import AddToCart from "components/api/AddToCart";
 import Slider from "react-slick";
 import axios from "axios";
 import Link from "next/link";
+import Size from "components/Size";
 
 const Details = ({ details }) => {
   const router = useRouter();
@@ -30,8 +31,9 @@ const Details = ({ details }) => {
     size,
   } = details;
 
-  const WithSize = { ...details, selSize: productSize };
-  const navigatetocart = () => {
+  const WithSize = { ...details, selSize: productSize, quantity: 1 };
+  console.log("WithSize:", WithSize);
+  const navigatetocart = (index) => {
     AddToCart({ WithSize });
     router.push("/shop/cart");
   };
@@ -113,27 +115,27 @@ const Details = ({ details }) => {
                       <strong>Free shipping</strong> on domestic orders over ₹50
                     </p>
                   </span>
-                  <div className="size-selection">
-                    <label style={{ fontWeight: "600" }} for="tshirt">
-                      Select Size
-                    </label>
-                    <select
-                      name="tshirt"
-                      id="tshirt-size"
-                      value={productSize}
-                      onChange={(e) => setProductSize(e.target.value)}
-                    >
-                      <option value="small">S</option>
-                      <option value="medium">M</option>
-                      <option value="large">L</option>
-                      <option value="xtra">XL</option>
-                    </select>
+                  <div className="tshirt-size d-flex align-items-baseline justify-content-between">
+                    <div className="size-selection ">
+                      <label style={{ fontWeight: "600" }} for="tshirt">
+                        Select Size
+                      </label>
+                      <select
+                        name="tshirt"
+                        id="tshirt-size"
+                        value={productSize}
+                        onChange={(e) => setProductSize(e.target.value)}
+                      >
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                      </select>
+                    </div>
+                    <Size sizeUrl="/resource/images/size.jpeg" />
                   </div>
                   <span class="cart-and-wishlist-btn">
                     <div
-                      // href={`https://api.whatsapp.com/send?phone=919971790511&text=Product-Name:${JSON.stringify(
-                      //   object
-                      // )}`}
                       class="add-to-cart-btn"
                       onClick={() => navigatetocart()}
                     >
@@ -145,7 +147,7 @@ const Details = ({ details }) => {
                       <strong>Delivery Timing</strong>
                     </h6>
                     <h6>
-                      1-2 Week <span class="stock-left">Only 1 left !!!</span>
+                      1-2 Week <span class="stock-left">Only Few left !!!</span>
                     </h6>
                     <p dangerouslySetInnerHTML={{ __html: description }} />
                   </span>

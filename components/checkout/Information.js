@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import state from "../../utils/state.json";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { host } from "static";
 import Link from "next/link";
+import AccessToken from "components/api/AccessToken";
+import CreatePayment from "components/api/CreatePayment";
+import CreateOrder from "components/api/CreateOrder";
+import { useRouter } from "next/router";
 
 const Information = ({ cartData }) => {
+  const router = useRouter();
   const formik = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
       email: "",
       address: "",
-      address2: "",
+      // address2: "",
       country: "",
       state: "",
       zip: "",
@@ -34,11 +39,23 @@ const Information = ({ cartData }) => {
         .max(10, "Phone should not be long more than 10 digits"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // CreatePayment();
+      CreateOrder(values, ProductOrderDetails);
     },
   });
+
   //validation**************************************************************************
   const { values } = formik;
+  const ProductOrderDetails = cartData.map((item, index) => {
+    return {
+      ProductId: item.ProductId,
+      ProductName: item.title,
+      ProductImage: item.image,
+      Price: item.priceSale,
+      quantity: item.quantity,
+    };
+  });
+  // console.log(ProductOrderDetails);
   const Product = cartData.map((item, index) => {
     return {
       name: item.title,
@@ -61,6 +78,10 @@ const Information = ({ cartData }) => {
   const data = JSON.stringify(Product);
   const right = data.replaceAll("[{", "");
   const left = right.replace("}]", "");
+  useEffect(() => {
+    AccessToken();
+  }, []);
+
   return (
     <>
       <div className="container" style={{ marginTop: "20px" }}>
@@ -82,7 +103,9 @@ const Information = ({ cartData }) => {
                       <small className="text-muted">Size</small>
                       <strong className="text-muted"> : {item.selSize}</strong>
                     </div>
-                    <span className="text-muted">₹{item.priceSale}</span>
+                    <span className="text-muted">
+                      ₹{item.priceSale} x {item.quantity}{" "}
+                    </span>
                   </li>
                 );
               })}
@@ -101,7 +124,7 @@ const Information = ({ cartData }) => {
                   <strong>
                     ₹
                     {cartData.reduce(function (prev, current) {
-                      return prev + current.priceSale;
+                      return prev + current.priceSale * current.quantity;
                     }, 0)}
                   </strong>
                 ) : (
@@ -213,21 +236,6 @@ const Information = ({ cartData }) => {
                     <div className="text-danger">{formik.errors.address}</div>
                   ) : null}
                 </span>
-              </div>
-
-              <div className="mb-3">
-                <label for="address2">Address 2</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="address2"
-                  name="address2"
-                  placeholder="Apartment or suite"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.address2}
-                  controlId="address2"
-                />
               </div>
 
               <div className="row">
@@ -348,7 +356,7 @@ const Information = ({ cartData }) => {
               </div> */}
               <hr className="mb-4" />
 
-              <h4 className="mb-3">Payment method</h4>
+              <h4 className="mb-3">Payment</h4>
 
               {/* <div className="d-block my-3">
                 <div className="custom-control custom-radio">
@@ -448,24 +456,23 @@ const Information = ({ cartData }) => {
               </div> */}
 
               <hr className="mb-4" />
-              <Link
-                // className="btn btn-p rimary btn-lg btn-block"
-                target="__blank"
-                // href={{
-                //   pathname: `https://api.whatsapp.com/send?phone=919711360687&text=details:${data}}`,
-                //   query: formik.values, // the data
-                // }}
+              <button
+                // target="__blank"
+                onClick={() =>
+                  CreateOrder({ values, ProductOrderDetails, router })
+                }
                 className="payment-btn"
-                href={`https://api.whatsapp.com/send?phone=919971790511&text=Name:${
-                  values.firstName
-                }-${values.lastName},email:${values.email},address:${
-                  values.address + values.address2
-                },state:${values.state},zip:${values.zip},city:${
-                  values.city
-                },phone:${values.phone},ProductDetails:${left}`}
+                type="submit"
+                // href={`https://api.whatsapp.com/send?phone=919971790511&text=Name:${
+                //   values.firstName
+                // }-${values.lastName},email:${values.email},address:${
+                //   values.address + values.address2
+                // },state:${values.state},zip:${values.zip},city:${
+                //   values.city
+                // },phone:${values.phone},ProductDetails:${left}`}
               >
-                Continue to checkout
-              </Link>
+                Continue to payment
+              </button>
             </form>
           </div>
         </div>

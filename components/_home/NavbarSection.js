@@ -28,7 +28,7 @@ const NavbarSection = () => {
       <div class={navwrap}>
         <nav class={navbar}>
           <Link href="/">
-            <img src="/resource/images/notext.png" />
+            <img src="/resources/images/art-logo.png" />
           </Link>
           {/* <div className="color-block"></div> */}
           <div
@@ -50,9 +50,9 @@ const NavbarSection = () => {
             <li class="nav-item">
               <Link href="/shop">SHOP</Link>
             </li>
-            <li class="nav-item">
+            {/* <li class="nav-item">
               <Link href="/services">SERVICES</Link>
-            </li>
+            </li> */}
             <li class="nav-item">
               <Link href="/#contact">CONTACT</Link>
             </li>

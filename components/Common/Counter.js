@@ -35,6 +35,8 @@ const Counter = ({ qty, id, setQtyUpdate }) => {
     }
   };
 
+  console.log("counter:", counter);
+
   return (
     <div class="quanity-div">
       <div class="plus" onClick={() => handleIncrement()}>

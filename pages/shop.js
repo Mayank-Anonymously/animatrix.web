@@ -3,9 +3,6 @@ import React from "react";
 import List from "../components/product/list";
 
 const Shop = () => {
-
-  
-
   return (
     <div>
       <NavbarSection />
