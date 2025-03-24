@@ -31,7 +31,7 @@ const CreateOrder = ({ values, ProductOrderDetails, router }) => {
     .request(options)
     .then(function (response) {
       const result = response.data.response;
-      router.push(`/checkout/payment/${result.OrderId}`);
+      // router.push(`/checkout/payment/${result.OrderId}`);
     })
     .catch(function (error) {
       console.error(error);

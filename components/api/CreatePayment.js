@@ -13,7 +13,7 @@ const CreatePayment = ({ data, orderid, setPaymentDetails, router }) => {
     email: details.Email,
     orderid: orderid,
     amount: total,
-    redirect_url: "https://www.asfiya art shop.store/checkout/payment/status",
+    redirect_url: "#",
   };
 
   const options = {
